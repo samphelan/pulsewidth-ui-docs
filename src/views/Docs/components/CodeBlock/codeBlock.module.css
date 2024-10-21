@@ -1,0 +1,6 @@
+.wrapper {
+    background-color: var(--pulsewidth-color-gray-9);
+    color: white;
+    border-radius: var(--pulsewidth-radius-5);
+}
+

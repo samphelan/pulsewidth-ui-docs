@@ -1,0 +1,5 @@
+.wrapper {
+    padding: var(--pulsewidth-spacing-6) 0;
+    border-top: 1px solid var(--pulsewidth-color-gray-1);
+    border-bottom: 1px solid var(--pulsewidth-color-gray-1);
+}

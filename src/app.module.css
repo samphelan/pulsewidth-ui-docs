@@ -1,0 +1,49 @@
+.h1 {
+    font-size: 6em;
+}
+
+.wrapper {
+    padding: 0 200px;
+    margin: 0;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.color1 {
+    background: -webkit-linear-gradient(45deg, #81baff, #005e95);
+}
+
+.color2 {
+    background: -webkit-linear-gradient(45deg, #906300, #ffc85a);
+}
+
+.color3 {
+    background: -webkit-linear-gradient(45deg, #d6001d, #3b11d2);
+}
+
+.gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 20s infinite;
+    background-size: 200%;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: left;
+    } 
+    50% {
+        background-position: right;
+    }
+    100% {
+        background-position: left;
+    }
+}

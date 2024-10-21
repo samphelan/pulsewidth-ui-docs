@@ -1,0 +1,28 @@
+.wrapper {
+    border-radius: var(--pulsewidth-radius-9);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--pulsewidth-color-gray-7);
+    position: relative;
+}
+
+.controls {
+    padding: 20px;
+    flex: 30%;
+    background-color: var(--pulsewidth-color-gray-8);
+    border-radius: var(--pulsewidth-radius-9);
+}
+
+.display {
+    padding: 20px;
+    flex: 70%;
+}
+
+@media (prefers-color-scheme: light) {
+    .controls {
+        background-color: var(--pulsewidth-color-gray-0);
+    }
+    .wrapper {
+        border-color: var(--pulsewidth-color-gray-1)
+    }
+}
