@@ -1,4 +1,4 @@
-import { Checkbox } from "pulsewidth-ui";
+import { Button, Drawer } from "pulsewidth-ui";
 import ComponentHeader from "../../components/ComponentHeader/ComponentHeader";
 import ComponentPageLayout from "../../components/ComponentPageLayout/ComponentPageLayout";
 import Sandbox, {
@@ -11,18 +11,17 @@ import ComponentBody from "../../components/ComponentBody/ComponentBody";
 import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariantPicker";
 
-const CheckboxDoc = () => {
-  const [circle, setCircle] = useState(false);
-  const [checked, setChecked] = useState(true);
-  const [selectedVariant, setSelectedVariant] = useState<Variant>("outline");
+const DrawerDoc = () => {
+  const [open, setOpen] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState<Variant>("soft");
   const [selectedColor, setSelectedColor] = useState<Colors>("gray");
 
   const code = () => {
     return `
-<Checkbox 
+<Drawer 
   variant={${selectedVariant}} 
   colorVariant={${selectedColor}}
-  circle={${circle}}
+  open={${open}}
 />
     `;
   };
@@ -30,23 +29,33 @@ const CheckboxDoc = () => {
   return (
     <ComponentPageLayout>
       <ComponentHeader
-        name="Checkbox"
-        description='Renders a checkbox that extends the design and functionality of the html input[type="checkbox"] tag'
-        github="https://github.com/samphelan/pulsewidth-ui/tree/main/lib/Checkbox"
+        name="Drawer"
+        description="Renders a fixed position drawer that opens from a side of the screen and often serves as a navigation menu on smaller screens and mobile devices"
+        github="https://github.com/samphelan/pulsewidth-ui/tree/main/lib/Drawer"
       ></ComponentHeader>
       <ComponentBody>
         <Sandbox>
           <SandboxDisplay code={code()}>
-            <Checkbox
-              label="Label"
+            <Drawer
+              onExit={() => {
+                setOpen(false);
+              }}
+              open={open}
               variant={selectedVariant}
               colorVariant={selectedColor}
-              checked={checked}
-              onChange={(v) => {
-                setChecked(v);
+            >
+              <div style={{ padding: "20px" }}>
+                <h2>Drawer Content Goes Here</h2>
+                <p>Click outside the drawer to exit.</p>
+              </div>
+            </Drawer>
+            <Button
+              onClick={() => {
+                setOpen((prev) => !prev);
               }}
-              circle={circle}
-            ></Checkbox>
+            >
+              Open Drawer
+            </Button>
           </SandboxDisplay>
           <SandboxControls>
             <h5>Variant</h5>
@@ -63,15 +72,6 @@ const CheckboxDoc = () => {
                 setSelectedColor(c);
               }}
             />
-            <h5 className="mt3">Shape</h5>
-            <Checkbox
-              checked={circle}
-              onChange={(b) => {
-                setCircle(b);
-              }}
-              className="mt3"
-              label="Circle"
-            />
           </SandboxControls>
         </Sandbox>
       </ComponentBody>
@@ -79,4 +79,4 @@ const CheckboxDoc = () => {
   );
 };
 
-export default CheckboxDoc;
+export default DrawerDoc;

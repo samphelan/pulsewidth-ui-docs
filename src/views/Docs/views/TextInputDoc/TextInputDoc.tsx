@@ -10,7 +10,6 @@ import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariant
 import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import { useState } from "react";
 import { Colors, Variant } from "pulsewidth-ui";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 const TextInputDoc = () => {
   const [val, setVal] = useState("");
@@ -60,13 +59,6 @@ const TextInputDoc = () => {
             ></ColorVariantPicker>
           </SandboxControls>
         </Sandbox>
-        <NavFooter
-          className="mt7"
-          previousPath="/docs/Slider"
-          previousTitle="Slider"
-          nextPath="/docs/Flex"
-          nextTitle="Flex"
-        />
       </ComponentBody>
     </ComponentPageLayout>
   );

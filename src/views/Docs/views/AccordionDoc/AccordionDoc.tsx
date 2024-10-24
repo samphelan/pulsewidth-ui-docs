@@ -15,7 +15,6 @@ import { useState } from "react";
 import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariantPicker";
 import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import { Colors, Radius, Variant } from "pulsewidth-ui";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 const AccordionDoc = () => {
   const [selectedVariant, setSelectedVariant] = useState<Variant>("outline");
@@ -34,6 +33,7 @@ const AccordionDoc = () => {
         name="Accordion"
         description="A text input that displays a list of autocomplete suggestions"
         github="https://github.com/samphelan/pulsewidth-ui/tree/main/lib/Autocomplete"
+        polymorphic={false}
       ></ComponentHeader>
       <ComponentBody>
         <Sandbox>
@@ -69,13 +69,6 @@ const AccordionDoc = () => {
             />
           </SandboxControls>
         </Sandbox>
-        <NavFooter
-          className="mt7"
-          previousPath="/docs/Flex"
-          previousTitle="Flex"
-          nextPath="/docs/List"
-          nextTitle="List"
-        />
       </ComponentBody>
     </ComponentPageLayout>
   );

@@ -5,13 +5,15 @@
 }
 
 .navWrap {
-    border-right: 1px solid rgb(75,75,75);
     overflow-y: scroll;
-    padding: 0 5px;
     height: calc(100vh - 51px);
-    min-width: 200px;
+    min-width: 300px;
     width: 15%;
     align-items: stretch;
+}
+
+.navWrapBorder {
+    border-right: 1px solid rgb(75,75,75);
 }
 
 .accordionHeader {
@@ -63,7 +65,7 @@
   }
 
 @media (prefers-color-scheme: light) {
-    .navWrap {
+    .navWrapBorder {
         border-right: 1px solid rgb(230,230,230);
     }
     .subSection {

@@ -1,3 +1,5 @@
 .wrapper {
     padding: var(--pulsewidth-spacing-9);
+    max-width: 900px;
+    margin: 0 auto;
 }

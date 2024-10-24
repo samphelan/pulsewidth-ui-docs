@@ -4,6 +4,7 @@
     border-style: solid;
     border-color: var(--pulsewidth-color-gray-7);
     position: relative;
+    flex: 1;
 }
 
 .controls {

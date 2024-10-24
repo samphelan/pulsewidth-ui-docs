@@ -10,7 +10,6 @@ import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariantPicker";
 import { useState } from "react";
 import { Colors, Variant } from "pulsewidth-ui";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 export const SliderSandbox = () => {
   const [val, setVal] = useState(5);
@@ -66,13 +65,6 @@ const SliderDoc = () => {
       ></ComponentHeader>
       <ComponentBody>
         <SliderSandbox />
-        <NavFooter
-          className="mt7"
-          previousPath="/docs/Select"
-          previousTitle="Select"
-          nextPath="/docs/TextInput"
-          nextTitle="TextInput"
-        />
       </ComponentBody>
     </ComponentPageLayout>
   );

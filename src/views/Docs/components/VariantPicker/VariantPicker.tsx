@@ -18,8 +18,8 @@ const VariantPicker = ({ selected, onChange }: VariantPickerProps) => {
             <Radio
               label={v}
               checked={selected === v}
-              onChange={(e) => {
-                if (e.currentTarget.value === "on") onChange(v);
+              onChange={(on) => {
+                if (on) onChange(v);
               }}
               disableIcon
               variant="soft"

@@ -18,7 +18,6 @@ import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariantPicker";
 import { useState } from "react";
 import { Colors, Position, Variant } from "pulsewidth-ui";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 const TooltipDoc = () => {
   const [selectedVariant, setSelectedVariant] = useState<Variant>("solid");
@@ -85,8 +84,8 @@ const TooltipDoc = () => {
                       <Radio
                         label={pos}
                         checked={labelPosition === pos}
-                        onChange={(e) => {
-                          if (e.currentTarget.checked) setLabelPosition(pos);
+                        onChange={(on) => {
+                          if (on) setLabelPosition(pos);
                         }}
                         disableIcon
                         variant="soft"
@@ -99,11 +98,6 @@ const TooltipDoc = () => {
             </List>
           </SandboxControls>
         </Sandbox>
-        <NavFooter
-          className="mt7"
-          previousPath="/docs/List"
-          previousTitle="List"
-        />
       </ComponentBody>
     </ComponentPageLayout>
   );

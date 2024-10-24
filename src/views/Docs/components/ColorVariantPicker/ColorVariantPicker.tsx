@@ -28,8 +28,8 @@ const ColorVariantPicker = ({
             <Radio
               label={c}
               checked={selected === c}
-              onChange={(e) => {
-                if (e.currentTarget.value === "on") onChange(c);
+              onChange={(on) => {
+                if (on) onChange(c);
               }}
               colorVariant={c}
               variant="solid"

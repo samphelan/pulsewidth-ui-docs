@@ -4,16 +4,24 @@ import logo from "../../assets/logo_transparent.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { ReactNode } from "react";
 
-const NavBar = () => {
+type NavBarProps = {
+  startDecorator?: ReactNode;
+};
+
+const NavBar = ({ startDecorator }: NavBarProps) => {
   return (
     <Flex as="nav" className={styles.wrapper}>
-      <Flex as={Link} to="/" className={styles.logoWrapper}>
-        <img
-          src={logo}
-          style={{ height: "50px", width: "50px", margin: 0, padding: 0 }}
-        />
-        <h3>PulsewidthUI</h3>
+      <Flex direction="row" align="center">
+        {startDecorator || null}
+        <Flex as={Link} to="/" className={styles.logoWrapper}>
+          <img
+            src={logo}
+            style={{ height: "50px", width: "50px", margin: 0, padding: 0 }}
+          />
+          <h3>PulsewidthUI</h3>
+        </Flex>
       </Flex>
 
       <Flex style={{ alignItems: "center" }}>

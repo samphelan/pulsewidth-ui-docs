@@ -1,6 +1,5 @@
 import { CodeBlock } from "../../components/CodeBlock/CodeBlock";
 import PageLayout from "../../components/PageLayout/PageLayout";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 const Installation = () => {
   return (
@@ -30,12 +29,6 @@ pnpm add pulsewidth-ui
     `}
         className={"mb6"}
       ></CodeBlock>
-      <NavFooter
-        nextTitle="Usage"
-        nextPath="/docs/Usage"
-        previousPath="/docs/Overview"
-        previousTitle="Overview"
-      />
     </PageLayout>
   );
 };

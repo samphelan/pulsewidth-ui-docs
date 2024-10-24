@@ -10,7 +10,6 @@ import { useState } from "react";
 import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariantPicker";
 import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import { Colors, Radius, Variant } from "pulsewidth-ui";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 const PhoneDoc = () => {
   const [val, setVal] = useState("");
@@ -74,13 +73,6 @@ const PhoneDoc = () => {
             />
           </SandboxControls>
         </Sandbox>
-        <NavFooter
-          className="mt7"
-          previousPath="/docs/Password"
-          previousTitle="Password"
-          nextPath="/docs/Radio"
-          nextTitle="Radio"
-        />
       </ComponentBody>
     </ComponentPageLayout>
   );

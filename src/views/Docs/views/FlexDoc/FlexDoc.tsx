@@ -9,7 +9,6 @@ import Sandbox, {
 import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariantPicker";
 import { useState } from "react";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 const FlexDoc = () => {
   const [selectedVariant, setSelectedVariant] = useState<Variant>("plain");
@@ -33,6 +32,7 @@ const FlexDoc = () => {
             When used directly, it renders a div (which can be overridden), and it is also used as the root element for semantic 
             components such as Nav, Section, Header, and Footer"
         github="https://github.com/samphelan/pulsewidth-ui/tree/main/lib/Flex"
+        polymorphic={true}
       ></ComponentHeader>
       <ComponentBody>
         <Sandbox>
@@ -60,13 +60,6 @@ const FlexDoc = () => {
             ></ColorVariantPicker>
           </SandboxControls>
         </Sandbox>
-        <NavFooter
-          className="mt7"
-          previousPath="/docs/TextInput"
-          previousTitle="TextInput"
-          nextPath="/docs/Accordion"
-          nextTitle="Accordion"
-        />
       </ComponentBody>
     </ComponentPageLayout>
   );

@@ -1,4 +1,4 @@
-import { Option, Select, Slider } from "pulsewidth-ui";
+import { Button, Slider } from "pulsewidth-ui";
 import ComponentBody from "../../components/ComponentBody/ComponentBody";
 import ComponentHeader from "../../components/ComponentHeader/ComponentHeader";
 import ComponentPageLayout from "../../components/ComponentPageLayout/ComponentPageLayout";
@@ -11,43 +11,33 @@ import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariant
 import { useState } from "react";
 import { Colors, Radius, Variant } from "pulsewidth-ui";
 
-export const SelectSandbox = () => {
-  const [val, setVal] = useState("");
+export const ButtonSandbox = () => {
   const [selectedVariant, setSelectedVariant] = useState<Variant>("outline");
   const [selectedColor, setSelectedColor] = useState<Colors>("gray");
   const [roundness, setRoundness] = useState<Radius>(3);
 
   const code = () => {
     return `
-<Select
+<Button
   variant={${selectedVariant}}
   colorVariant={${selectedColor}}
   radius={${roundness}}
 >
-  <Option value="Option 1">Option 1</Option>
-  <Option value="Option 2">Option 2</Option>
-  <Option value="Option 3">Option 3</Option>
-</Select>
+Click Me
+</Button>
     `;
   };
 
   return (
     <Sandbox>
       <SandboxDisplay code={code()}>
-        <Select
-          style={{ flex: "0" }}
+        <Button
           variant={selectedVariant}
           colorVariant={selectedColor}
-          selected={val}
           radius={roundness}
-          onChange={(v) => {
-            setVal(v);
-          }}
         >
-          <Option value="Option 1">Option 1</Option>
-          <Option value="Option 2">Option 2</Option>
-          <Option value="Option 3">Option 3</Option>
-        </Select>
+          Click Me
+        </Button>
       </SandboxDisplay>
       <SandboxControls>
         <h5>Variant</h5>
@@ -78,19 +68,20 @@ export const SelectSandbox = () => {
   );
 };
 
-const SelectDoc = () => {
+const ButtonDoc = () => {
   return (
     <ComponentPageLayout>
       <ComponentHeader
-        name="Select"
-        description='Renders a component that extends the design and functionality of the html input[type="select"] tag'
+        name="Button"
+        description="Renders a component that extends the design and functionality of the html <button> tag"
         github="https://github.com/samphelan/pulsewidth-ui/tree/main/lib/Select"
+        polymorphic={true}
       ></ComponentHeader>
       <ComponentBody>
-        <SelectSandbox />
+        <ButtonSandbox />
       </ComponentBody>
     </ComponentPageLayout>
   );
 };
 
-export default SelectDoc;
+export default ButtonDoc;

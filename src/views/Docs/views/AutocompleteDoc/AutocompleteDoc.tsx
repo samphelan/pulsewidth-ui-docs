@@ -10,7 +10,6 @@ import { useState } from "react";
 import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariantPicker";
 import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import { Colors, Radius, Variant } from "pulsewidth-ui";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 const AutocompleteDoc = () => {
   const [val, setVal] = useState("");
@@ -76,13 +75,6 @@ const AutocompleteDoc = () => {
             />
           </SandboxControls>
         </Sandbox>
-        <NavFooter
-          className="mt7"
-          previousPath="/docs/Usage"
-          previousTitle="Usage"
-          nextPath="/docs/Checkbox"
-          nextTitle="Checkbox"
-        />
       </ComponentBody>
     </ComponentPageLayout>
   );

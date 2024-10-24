@@ -10,7 +10,6 @@ import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariantPicker";
 import { useState } from "react";
 import { Colors, Variant } from "pulsewidth-ui";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 const ListDoc = () => {
   const [selectedVariant, setSelectedVariant] = useState<Variant>("plain");
@@ -58,13 +57,6 @@ const ListDoc = () => {
             ></ColorVariantPicker>
           </SandboxControls>
         </Sandbox>
-        <NavFooter
-          className="mt7"
-          previousPath="/docs/Accordion"
-          previousTitle="Accordion"
-          nextPath="/docs/Tooltip"
-          nextTitle="Tooltip"
-        />
       </ComponentBody>
     </ComponentPageLayout>
   );

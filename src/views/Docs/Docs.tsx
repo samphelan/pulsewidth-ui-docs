@@ -2,6 +2,8 @@ import {
   Accordion,
   AccordionContent,
   AccordionHeader,
+  Button,
+  Drawer,
   Flex,
   List,
   ListItem,
@@ -11,134 +13,122 @@ import { Fragment } from "react/jsx-runtime";
 import NavBar from "../../components/NavBar/NavBar";
 import styles from "./docs.module.css";
 import { Link, useParams } from "react-router-dom";
-import AutocompleteDoc from "./views/AutocompleteDoc/AutocompleteDoc";
-import TextInputDoc from "./views/TextInputDoc/TextInputDoc";
-import Overview from "./views/Overview/Overview";
-import Installation from "./views/Installation/Installation";
-import CheckboxDoc from "./views/CheckboxDoc/CheckboxDoc";
-import RadioDoc from "./views/RadioDoc/RadioDoc";
-import SelectDoc from "./views/SelectDoc/SelectDoc";
-import FlexDoc from "./views/FlexDoc/FlexDoc";
-import TooltipDoc from "./views/TooltipDoc/TooltipDoc";
-import ListDoc from "./views/ListDoc/ListDoc";
-import Usage from "./views/Usage/Usage";
-import SliderDoc from "./views/SliderDoc/SliderDoc";
-import PasswordDoc from "./views/PasswordDoc/PasswordDoc";
-import PhoneDoc from "./views/PhoneDoc/PhoneDoc";
-import AccordionDoc from "./views/AccordionDoc/AccordionDoc";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { findComponentByPath, navData, NavData } from "./navData";
 
-const renderPage = (p: string) => {
-  switch (p.toLowerCase()) {
-    case "overview":
-      return <Overview></Overview>;
-    case "installation":
-      return <Installation></Installation>;
-    case "usage":
-      return <Usage></Usage>;
-    case "accordion":
-      return <AccordionDoc></AccordionDoc>;
-    case "autocomplete":
-      return <AutocompleteDoc></AutocompleteDoc>;
-    case "textinput":
-      return <TextInputDoc></TextInputDoc>;
-    case "checkbox":
-      return <CheckboxDoc></CheckboxDoc>;
-    case "password":
-      return <PasswordDoc></PasswordDoc>;
-    case "phone":
-      return <PhoneDoc></PhoneDoc>;
-    case "radio":
-      return <RadioDoc></RadioDoc>;
-    case "select":
-      return <SelectDoc></SelectDoc>;
-    case "slider":
-      return <SliderDoc></SliderDoc>;
-    case "flex":
-      return <FlexDoc></FlexDoc>;
-    case "list":
-      return <ListDoc></ListDoc>;
-    case "tooltip":
-      return <TooltipDoc></TooltipDoc>;
-    default:
-      return <Overview></Overview>;
-  }
+type SideNavProps = {
+  navData: NavData[];
+  page: string;
+  onClickLink?: () => void;
+  noBorder?: boolean;
+  className?: string;
+};
+
+const SideNav = ({
+  navData,
+  page,
+  onClickLink,
+  noBorder = false,
+  className,
+}: SideNavProps) => {
+  return (
+    <Flex
+      direction="column"
+      className={[
+        styles.navWrap,
+        ...(noBorder ? [] : [styles.navWrapBorder]),
+        className,
+      ].join(" ")}
+    >
+      {navData.map((section) => (
+        <Accordion key={section.title} defaultExpanded={true}>
+          <AccordionHeader className={styles.accordionHeader}>
+            {section.title.toUpperCase()}
+          </AccordionHeader>
+          <AccordionContent className={styles.content}>
+            <div className={styles.line} />
+            <List className={styles.list}>
+              {section.sections.map((subSection) => (
+                <Fragment key={subSection.title || subSection.pages[0].path}>
+                  {subSection.title && (
+                    <ListItem className={styles.subSection}>
+                      {subSection.title.toUpperCase()}
+                    </ListItem>
+                  )}
+                  {subSection.pages.map((p) => (
+                    <ListItem key={p.path} className={styles.pageLink}>
+                      <ListItemButton
+                        as={Link}
+                        to={`/docs/${p.path}`}
+                        className={styles.pageLinkButton}
+                        variant={
+                          page.toLowerCase() === p.path.toLowerCase() ||
+                          (page === "" && p.path.toUpperCase() === "OVERVIEW")
+                            ? "soft"
+                            : "plain"
+                        }
+                        onClick={() => {
+                          if (onClickLink) onClickLink();
+                        }}
+                      >
+                        {p.title || p.path}
+                      </ListItemButton>
+                    </ListItem>
+                  ))}
+                </Fragment>
+              ))}
+            </List>
+          </AccordionContent>
+        </Accordion>
+      ))}
+      <div style={{ minHeight: "200px" }}></div>
+    </Flex>
+  );
 };
 
 const Docs = () => {
   const { page = "" } = useParams();
-
-  const navData = [
-    {
-      title: "Getting Started",
-      sections: [{ title: null, pages: ["Overview", "Installation", "Usage"] }],
-    },
-    {
-      title: "Components",
-      sections: [
-        {
-          title: "Inputs",
-          pages: [
-            "Autocomplete",
-            "TextInput",
-            "Checkbox",
-            "Password",
-            "Phone",
-            "Radio",
-            "Select",
-            "Slider",
-          ].sort(),
-        },
-        { title: "Layout", pages: ["Flex"] },
-        { title: "Data Display", pages: ["Accordion", "List", "Tooltip"] },
-      ],
-    },
-  ];
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <Fragment>
-      <NavBar></NavBar>
+      <NavBar
+        startDecorator={
+          <Button
+            style={{ margin: "0 5px", padding: "10px 12px" }}
+            variant="outline"
+            onClick={() => {
+              setDrawerOpen((prev) => !prev);
+            }}
+            className="showOnTablet"
+          >
+            <FontAwesomeIcon icon={faBars} />
+          </Button>
+        }
+      ></NavBar>
       <Flex className={styles.wrapper} style={{ paddingTop: "51px" }}>
-        <Flex direction="column" className={styles.navWrap}>
-          {navData.map((section) => (
-            <Accordion key={section.title} defaultExpanded={true}>
-              <AccordionHeader className={styles.accordionHeader}>
-                {section.title.toUpperCase()}
-              </AccordionHeader>
-              <AccordionContent className={styles.content}>
-                <div className={styles.line} />
-                <List className={styles.list}>
-                  {section.sections.map((p) => (
-                    <Fragment key={p.title || p.pages[0]}>
-                      {p.title && (
-                        <ListItem className={styles.subSection}>
-                          {p.title.toUpperCase()}
-                        </ListItem>
-                      )}
-                      {p.pages.map((p) => (
-                        <ListItem key={p} className={styles.pageLink}>
-                          <ListItemButton
-                            as={Link}
-                            to={`/docs/${p}`}
-                            className={styles.pageLinkButton}
-                            variant={
-                              page === p ||
-                              (page === "" && p.toUpperCase() === "OVERVIEW")
-                                ? "soft"
-                                : "plain"
-                            }
-                          >
-                            {p}
-                          </ListItemButton>
-                        </ListItem>
-                      ))}
-                    </Fragment>
-                  ))}
-                </List>
-              </AccordionContent>
-            </Accordion>
-          ))}
+        <Drawer
+          open={drawerOpen}
+          onExit={() => {
+            setDrawerOpen(false);
+          }}
+          variant="outline"
+        >
+          <SideNav
+            noBorder
+            page={page}
+            navData={navData}
+            onClickLink={() => {
+              setDrawerOpen(false);
+            }}
+          />
+        </Drawer>
+        <SideNav page={page} navData={navData} className={"hideOnTablet"} />
+        <Flex className={styles.pageWrap}>
+          {findComponentByPath(page || "Overview")}
         </Flex>
-        <Flex className={styles.pageWrap}>{renderPage(page)}</Flex>
       </Flex>
     </Fragment>
   );

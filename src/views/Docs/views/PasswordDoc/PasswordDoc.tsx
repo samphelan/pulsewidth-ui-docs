@@ -10,7 +10,6 @@ import { useState } from "react";
 import ColorVariantPicker from "../../components/ColorVariantPicker/ColorVariantPicker";
 import VariantPicker from "../../components/VariantPicker/VariantPicker";
 import { Colors, Radius, Variant } from "pulsewidth-ui";
-import NavFooter from "../../components/NavFooter/NavFooter";
 
 const PasswordDoc = () => {
   const [val, setVal] = useState("");
@@ -75,13 +74,6 @@ const PasswordDoc = () => {
             />
           </SandboxControls>
         </Sandbox>
-        <NavFooter
-          className="mt7"
-          previousPath="/docs/Checkbox"
-          previousTitle="Checkbox"
-          nextPath="/docs/Phone"
-          nextTitle="Phone"
-        />
       </ComponentBody>
     </ComponentPageLayout>
   );

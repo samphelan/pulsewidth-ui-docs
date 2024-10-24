@@ -1,5 +1,5 @@
-//import "./App.css";
 import "pulsewidth-ui/dist/style.css";
+import "./App.css";
 import LandingPage from "./views/LandingPage/LandingPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Docs from "./views/Docs/Docs";

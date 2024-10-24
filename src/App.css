@@ -1,48 +1,51 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
-}
 
 * {
   padding: 0;
   margin: 0;
 }
 
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  min-width: 320px;
-  max-width: 500px;
-  min-height: 100vh;
-}
-
-.app .miniwrapper {
-  display: flex;
-  flex-direction: column;
+a {
+  color: rgba(0, 106, 255, 0.7);
 }
 
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Small screens (Mobile) */
+@media (max-width: 600px) {
+  .showOnMobile {
+    display: flex;
   }
-  to {
-    transform: rotate(360deg);
+  .hideOnMobile {
+    display: none;
+  }
+  .hideOnTablet {
+    display: none;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Medium screens (Tablet) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .showOnMobile {
+    display: none;
+  }
+  .hideOnMobile {
+    display: flex;
+  }
+  .hideOnTablet {
+    display: none;
+  }
+  
+}
+
+/* Large screens (Desktop) */
+@media (min-width: 1025px) {
+  .showOnMobile {
+    display: none;
+  }
+  .hideOnMobile {
+    display: flex;
+  }
+  .showOnTablet {
+    display: none;
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}

@@ -2,7 +2,7 @@ import { Button, Flex } from "pulsewidth-ui";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import logo from "../../../../assets/logo_transparent.png";
 import { ReactNode } from "react";
-import NavFooter from "../../components/NavFooter/NavFooter";
+
 import Sandbox, { SandboxDisplay } from "../../components/Sandbox/Sandbox";
 import { Link } from "react-router-dom";
 import { SelectSandbox } from "../SelectDoc/SelectDoc";
@@ -116,7 +116,6 @@ import { Link } from "react-router-dom";
           for everyone.
         </p>
       </Section>
-      <NavFooter nextPath="/docs/Installation" nextTitle="Installation" />
     </PageLayout>
   );
 };

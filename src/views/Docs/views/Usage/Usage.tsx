@@ -1,5 +1,5 @@
 import { CodeBlock } from "../../components/CodeBlock/CodeBlock";
-import NavFooter from "../../components/NavFooter/NavFooter";
+
 import PageLayout from "../../components/PageLayout/PageLayout";
 
 const Usage = () => {
@@ -34,16 +34,10 @@ export default function ButtonUsage() {
       <br />
       <CodeBlock
         str={`
-import "style.css" from "pulsewidth-ui";
+import "pulsewidth-ui/dist/style.css";
     `}
         className={"mb6"}
       ></CodeBlock>
-      <NavFooter
-        previousPath="/docs/Installation"
-        previousTitle="Installation"
-        nextPath="/docs/Autocomplete"
-        nextTitle="Autocomplete"
-      />
     </PageLayout>
   );
 };

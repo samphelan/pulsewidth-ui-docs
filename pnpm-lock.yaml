@@ -24,8 +24,8 @@ importers:
         specifier: ^2.4.0
         version: 2.4.0(react@18.3.1)
       pulsewidth-ui:
-        specifier: ^0.0.14
-        version: 0.0.14(@fortawesome/fontawesome-svg-core@6.6.0)(@fortawesome/free-solid-svg-icons@6.6.0)(@fortawesome/react-fontawesome@0.2.2(@fortawesome/fontawesome-svg-core@6.6.0)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: latest
+        version: 0.0.17(@fortawesome/fontawesome-svg-core@6.6.0)(@fortawesome/free-solid-svg-icons@6.6.0)(@fortawesome/react-fontawesome@0.2.2(@fortawesome/fontawesome-svg-core@6.6.0)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -981,8 +981,8 @@ packages:
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
 
-  pulsewidth-ui@0.0.14:
-    resolution: {integrity: sha512-c5SA76ug58CXk4zxeYfmMraeOHrWYumCcMS90TJVcS5zPCO/izzSOLvlDKWZhahhPq8diggjK29TnpbYn2QHQg==}
+  pulsewidth-ui@0.0.17:
+    resolution: {integrity: sha512-F40BvsENZ+OFRv7TGdvoZsG8Su0WPPT5THPEpkLMc0nL3eAP1lgbvDvvpMmB8wik4V5K24Va2lZz03x5MIC1wg==}
     peerDependencies:
       '@fortawesome/fontawesome-svg-core': ^6.6.0
       '@fortawesome/free-solid-svg-icons': ^6.6.0
@@ -2044,7 +2044,7 @@ snapshots:
       object-assign: 4.1.1
       react-is: 16.13.1
 
-  pulsewidth-ui@0.0.14(@fortawesome/fontawesome-svg-core@6.6.0)(@fortawesome/free-solid-svg-icons@6.6.0)(@fortawesome/react-fontawesome@0.2.2(@fortawesome/fontawesome-svg-core@6.6.0)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  pulsewidth-ui@0.0.17(@fortawesome/fontawesome-svg-core@6.6.0)(@fortawesome/free-solid-svg-icons@6.6.0)(@fortawesome/react-fontawesome@0.2.2(@fortawesome/fontawesome-svg-core@6.6.0)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@fortawesome/fontawesome-svg-core': 6.6.0
       '@fortawesome/free-solid-svg-icons': 6.6.0
